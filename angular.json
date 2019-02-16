@@ -22,7 +22,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
+            "styles": [
+              "./node_modules/normalize.css/normalize.css"
+            ],
             "scripts": []
           },
           "configurations": {
