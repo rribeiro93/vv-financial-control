@@ -1,0 +1,9 @@
+@import '../../css/default';
+
+header {
+  background-color: #cccccc;
+
+  .content {
+    @extend .default-content;
+  }
+}

@@ -1,10 +1,26 @@
-$color: #000;
-$bg-color: #e2e2e2;
+@import '../shared/css/default';
+@import '../shared/css/displays';
 
-pre {
-  color: $color;
-  background-color: $bg-color;
-  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
+main {
+  @extend .default-content;
+  background-color: rgb(255, 255, 255);
+}
+
+@include desktop {
+  .transaction-section {
+    float: left;
+    width: 40%;
+  }
+}
+
+@include tablet {
+  .transaction-section {
+    margin-bottom: $default-spacing;
+  }
+}
+
+@include mobile {
+  .transaction-section {
+    margin-bottom: $default-spacing;
+  }
 }
