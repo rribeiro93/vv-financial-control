@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/shared/component/header/header.component';
-import { AppComponent } from './app.component';
+import { FinancialControlComponent } from './financial-control.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionsStatementComponent } from './transactions-statement/transactions-statement.component';
 
-
-
 @NgModule({
   declarations: [
-    AppComponent,
+    FinancialControlComponent,
     HeaderComponent,
     TransactionComponent,
     TransactionsStatementComponent
@@ -18,6 +16,6 @@ import { TransactionsStatementComponent } from './transactions-statement/transac
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [FinancialControlComponent]
 })
-export class AppModule { }
+export class FinancialControlModule { }
