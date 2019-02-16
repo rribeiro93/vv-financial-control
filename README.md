@@ -1,2 +1,3 @@
 # vv-financial-control
-Via Varejo Job Test
+
+Via Varejo Job Test. In progress ...
