@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/normalize.css/normalize.css"
+              "./node_modules/normalize.css/normalize.css",
+              "./src/shared/css/default.css"
             ],
             "scripts": []
           },
