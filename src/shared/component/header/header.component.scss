@@ -1,0 +1,9 @@
+@import '../../css/displays';
+
+header {
+  background-color: #cccccc;
+
+  .content {
+    @extend .default-content;
+  }
+}
