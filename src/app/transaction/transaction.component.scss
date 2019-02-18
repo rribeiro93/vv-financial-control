@@ -1,0 +1,79 @@
+@import '../../shared/css/default';
+@import '../../shared/css/displays';
+
+form {
+  display: block;
+
+  border: 2px solid #c5c4c4;
+  padding: $default-element-spacing;
+
+  @include mobile {
+    border-bottom: 2px solid #c5c4c4;
+    padding-bottom: $default-element-spacing + 10px;
+
+    h3 {
+      display: none;
+    }
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.input-group {
+  display: block;
+  margin-bottom: $default-element-spacing;
+
+  @include tablet {
+    display: inline-block;
+    vertical-align: middle;
+    width: 44%;
+
+    &:first-child,
+    &:last-child {
+      width: 25%;
+    }
+
+    &:not(:last-child) {
+      margin-right: $default-element-spacing;
+    }
+
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  input, select {
+    display: block;
+    border-radius: 5px;
+    border: 2px solid #c5c4c4;
+    background-color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+p {
+  text-align: right;
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  background-color: #383838;
+  color: #ffffff;
+
+  @include tablet {
+    width: 200px;
+    text-align: center;
+  }
+}

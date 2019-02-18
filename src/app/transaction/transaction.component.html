@@ -1,1 +1,36 @@
-transaction content
+<form>
+
+  <h3>Nova Transação</h3>
+
+  <div class="form-gorup">
+    <div class="input-group">
+      <label for="transaction-type">Tipo de Transação</label>
+      <select id="transaction-type">
+        <option value="">Selecione</option>
+        <option value="Compra">Compra</option>
+        <option value="Venda">Venda</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="commodity-name">Nome da mercadoria</label>
+      <input
+        type="text"
+        id="commodity-name"
+        placeholder="Input"
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="commodity-value">Valor</label>
+      <input
+        type="text"
+        id="commodity-value"
+        placeholder="R$ 0,00"
+      >
+    </div>
+  </div>
+
+  <p><button type="button">Adicionar transação</button></p>
+
+</form>

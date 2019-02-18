@@ -45,6 +45,7 @@ header {
   @include tablet-landscape {
     display: block;
   }
+
   @include desktop {
     display: block;
   }
