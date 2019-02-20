@@ -18,14 +18,14 @@ export class TransactionsStatementComponent {
         'R$ 12.999,99'
       ),
       new Transaction(
-        '+',
-        'Lorem ipsum dolor sit amet',
-        'R$ 12.999,99'
+        '-',
+        'Wuis nostrud exercitation',
+        'R$ 99,99'
       ),
       new Transaction(
         '+',
-        'Lorem ipsum dolor sit amet',
-        'R$ 12.999,99'
+        'Lorem ipsum',
+        'R$ 9,99'
       )
     );
 
