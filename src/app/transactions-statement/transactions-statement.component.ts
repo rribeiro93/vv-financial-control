@@ -7,6 +7,34 @@ import { Component } from '@angular/core';
 })
 export class TransactionsStatementComponent {
 
-  constructor() { }
+  transactionList = new Array<Transaction>();
 
+  constructor() {
+
+    this.transactionList.push(
+      {
+        type: '+',
+        statement: 'Lorem ipsum dolor sit amet',
+        price: 'R$ 12.999,99'
+      },
+      {
+        type: '-',
+        statement: 'Wuis nostrud exercitation',
+        price: 'R$ 99,99'
+      },
+      {
+        type: '+',
+        statement: 'Lorem ipsum',
+        price: 'R$ 9,99'
+      }
+    );
+
+  }
+
+}
+
+class Transaction {
+  type: string;
+  statement: string;
+  price: string;
 }

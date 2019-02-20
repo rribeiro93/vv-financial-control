@@ -1,1 +1,34 @@
-transactions statement content
+<div class="transaction-statement">
+
+  <h3>Extrato de Transações</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Mercadoria</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactionList">
+        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.statement }}</td>
+        <td>{{ transaction.price }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>Total</th>
+        <th>R$ 12.909,99</th>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <small>[LUCRO]</small>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+</div>
