@@ -1,0 +1,75 @@
+@import '../../shared/css/default';
+@import '../../shared/css/displays';
+
+$cell-spacing: 10px;
+$border-color: #c5c4c4;
+
+.transaction-statement {
+  display: block;
+  padding: $default-element-spacing 0 $default-element-spacing $default-element-spacing;
+
+  @include mobile {
+    padding: 0;
+  }
+}
+
+h3 {
+  margin-top: 0;
+  text-align: center;
+
+  @include mobile {
+    margin-top: $default-element-spacing * 2;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead th {
+  padding: $cell-spacing;
+  text-align: left;
+  border-bottom: 2px solid $border-color;
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+tbody {
+  tr {
+    border-bottom: 2px solid $border-color;
+
+    &:last-child {
+      border-bottom: 5px double $border-color;
+    }
+  }
+  td {
+    padding: $cell-spacing;
+
+    &:first-child {
+      text-align: center;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
+tfoot {
+  th {
+    padding: $cell-spacing $cell-spacing 0 $cell-spacing;
+    text-align: left;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  tr:last-child td {
+    padding-right: $cell-spacing;
+    text-align: right;
+  }
+}

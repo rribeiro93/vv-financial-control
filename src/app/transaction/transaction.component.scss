@@ -8,7 +8,9 @@ form {
   padding: $default-element-spacing;
 
   @include mobile {
+    border: none;
     border-bottom: 2px solid #c5c4c4;
+    padding: 0;
     padding-bottom: $default-element-spacing + 10px;
 
     h3 {
@@ -71,6 +73,7 @@ button {
   border: none;
   background-color: #383838;
   color: #ffffff;
+  cursor: pointer;
 
   @include tablet {
     width: 200px;
