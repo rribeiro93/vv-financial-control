@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from 'src/shared/component/header/header.component';
 import { FinancialControlComponent } from './financial-control.component';
@@ -14,7 +15,8 @@ import { TransactionsStatementComponent } from './transactions-statement/transac
     TransactionsStatementComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [
     SessionStorageService

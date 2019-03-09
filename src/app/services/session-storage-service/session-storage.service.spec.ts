@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { Transaction } from 'src/app/transaction/model/transaction.model';
+import { Transaction } from '../../transaction/model/transaction.model';
 import { SessionStorageService } from './session-storage.service';
 
 describe('SessionStorageService', () => {

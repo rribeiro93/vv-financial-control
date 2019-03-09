@@ -1,15 +1,27 @@
-<form>
+<h3>Nova Transação</h3>
 
-  <h3>Nova Transação</h3>
+<form
+  [formGroup]="transactionForm"
+  (submit)="addTransaction()"
+>
 
   <div class="form-gorup">
+
     <div class="input-group">
       <label for="transaction-type">Tipo de Transação</label>
-      <select id="transaction-type">
+      <select
+        id="transaction-type"
+        formControlName="transactionType"
+        required
+      >
         <option value="">Selecione</option>
         <option value="Compra">Compra</option>
         <option value="Venda">Venda</option>
       </select>
+      <small
+        class="error-msg"
+        *ngIf="transactionForm.get('transactionType').errors?.required"
+      >Required Field</small>
     </div>
 
     <div class="input-group">
@@ -18,7 +30,13 @@
         type="text"
         id="commodity-name"
         placeholder="Input"
+        formControlName="statement"
+        required
       >
+      <small
+        class="error-msg"
+        *ngIf="transactionForm.get('statement').errors?.required"
+      >Required Field</small>
     </div>
 
     <div class="input-group">
@@ -27,13 +45,17 @@
         type="text"
         id="commodity-value"
         placeholder="R$ 0,00"
+        formControlName="price"
+        required
       >
+      <small
+        class="error-msg"
+        *ngIf="transactionForm.get('price').errors?.required"
+      >Required Field</small>
     </div>
+
   </div>
 
-  <p><button
-      type="button"
-      (click)="addTransaction()"
-    >Adicionar transação</button></p>
+  <p><button type="submit">Adicionar transação</button></p>
 
 </form>
