@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SessionStorageService } from '../services/session-storage-service/session-storage.service';
+import { Transaction } from './model/transaction.model';
 
 @Component({
   selector: 'vv-transaction',
@@ -11,7 +13,8 @@ export class TransactionComponent implements OnInit {
   transactionForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private sessionStorageService: SessionStorageService
   ) { }
 
   ngOnInit(): void {
@@ -24,12 +27,16 @@ export class TransactionComponent implements OnInit {
 
   }
 
+  /**
+   * @description Save transaction in case form is valid
+   */
   addTransaction(): void {
     if (this.transactionForm.invalid) {
       return;
     }
 
-    console.log('register transaction', this.transactionForm.controls);
+    const newTransaction = this.transactionForm.value as Transaction;
+    this.sessionStorageService.save(newTransaction);
   }
 
 }

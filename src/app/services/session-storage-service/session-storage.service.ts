@@ -4,18 +4,31 @@ import { Transaction } from '../../transaction/model/transaction.model';
 @Injectable()
 export class SessionStorageService {
 
-  constructor() { }
+  private readonly KEY = 'transactions';
+  private transactionList: Array<Transaction>;
 
-  readonly KEY = 'transactions';
+  constructor() {
+    this.transactionList = this.list;
+  }
 
   /**
-   * @description Save transactions to the storage
+   * @description Save a single transaction to the storage
+   * @param transaction New transaction
+   */
+  save(transaction: Transaction): void {
+
+    this.transactionList.push(transaction);
+    sessionStorage.setItem(this.KEY, JSON.stringify(this.transactionList));
+  }
+
+  /**
+   * @description Save a list of transactions to the storage
    * @param transactions List of transactions
    */
-  save(transactions: Array<Transaction>): void {
+  saveList(transactions: Array<Transaction>): void {
 
-    const data = JSON.stringify(transactions);
-    sessionStorage.setItem(this.KEY, data);
+    const transactionList = JSON.stringify(transactions);
+    sessionStorage.setItem(this.KEY, transactionList);
   }
 
   /**
@@ -34,7 +47,7 @@ export class SessionStorageService {
 
       if (transactIndex) {
         transactions.splice(transactIndex, 1);
-        this.save(transactions);
+        this.saveList(transactions);
       }
 
     }
@@ -55,7 +68,7 @@ export class SessionStorageService {
 
     }
 
-    return null;
+    return new Array<Transaction>();
   }
 
 }
