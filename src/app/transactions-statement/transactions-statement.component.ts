@@ -1,40 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TransactionService } from '../services/session-storage-service/transaction.service';
+import { Transaction } from '../transaction/model/transaction.model';
+import { TransactionEnum } from '../transaction/transaction.enum';
 
 @Component({
   selector: 'vv-transactions-statement',
   templateUrl: './transactions-statement.component.html',
   styleUrls: ['./transactions-statement.component.scss']
 })
-export class TransactionsStatementComponent {
+export class TransactionsStatementComponent implements OnInit, OnDestroy {
 
-  transactionList = new Array<Transaction>();
+  totalTransactions = 0;
 
-  constructor() {
+  transactionList: Array<Transaction>;
+  resultType = '';
 
-    this.transactionList.push(
-      {
-        type: '+',
-        statement: 'Lorem ipsum dolor sit amet',
-        price: 'R$ 12.999,99'
-      },
-      {
-        type: '-',
-        statement: 'Wuis nostrud exercitation',
-        price: 'R$ 99,99'
-      },
-      {
-        type: '+',
-        statement: 'Lorem ipsum',
-        price: 'R$ 9,99'
-      }
-    );
+  private subscription = new Subscription();
 
+  readonly PURCHASE = TransactionEnum.PURCHASE;
+  readonly SALE = TransactionEnum.SALE;
+
+  constructor(
+    private transactionService: TransactionService
+  ) { }
+
+  ngOnInit() {
+    this.transactionList = this.transactionService.list();
+    this.sumTransactions();
+    this.initListeners();
   }
 
-}
+  private initListeners(): void {
+    this.subscription.add(
+      this.transactionService
+        .transactionSubject$
+        .subscribe((transaction: Transaction) => {
+          this.transactionList.push(transaction);
+          this.sumTransactions();
+        })
+    );
+  }
 
-class Transaction {
-  type: string;
-  statement: string;
-  price: string;
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  /**
+   * @description Sum price values and define the final message
+   */
+  sumTransactions(): void {
+    if (this.transactionList.length) {
+      const sum = this.transactionList
+        .map((transaction: Transaction) => transaction.priceCalc)
+        .reduce((x: number, y: number) => Number(x) + Number(y));
+
+      this.totalTransactions = sum;
+      this.resultType = this.totalTransactions > 0 ? '[LUCRO]' : '[PREJUIZO]';
+    }
+  }
+
 }

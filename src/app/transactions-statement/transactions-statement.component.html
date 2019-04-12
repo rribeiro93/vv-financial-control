@@ -2,7 +2,7 @@
 
   <h3>Extrato de Transações</h3>
 
-  <table>
+  <table *ngIf="transactionList">
     <thead>
       <tr>
         <th></th>
@@ -12,20 +12,20 @@
     </thead>
     <tbody>
       <tr *ngFor="let transaction of transactionList">
-        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.slug }}</td>
         <td>{{ transaction.statement }}</td>
-        <td>{{ transaction.price }}</td>
+        <td>{{ transaction.price | currency: 'R$ ' }}</td>
       </tr>
     </tbody>
     <tfoot>
       <tr>
         <th></th>
         <th>Total</th>
-        <th>R$ 12.909,99</th>
+        <th>{{ totalTransactions | currency: 'R$ ' }}</th>
       </tr>
-      <tr>
+      <tr *ngIf="resultType">
         <td colspan="3">
-          <small>[LUCRO]</small>
+          <small>{{ resultType }}</small>
         </td>
       </tr>
     </tfoot>
