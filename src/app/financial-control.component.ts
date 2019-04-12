@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './financial-control.component.html',
   styleUrls: ['./financial-control.component.scss']
 })
-export class FinancialControlComponent {
-
-  constructor() { }
-
-}
+export class FinancialControlComponent { }
