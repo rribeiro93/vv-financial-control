@@ -2,7 +2,7 @@
 
 <form
   [formGroup]="transactionForm"
-  (submit)="addTransaction()"
+  (submit)="addTransaction($event)"
 >
 
   <div class="form-gorup">
@@ -15,13 +15,13 @@
         required
       >
         <option value="">Selecione</option>
-        <option value="Compra">Compra</option>
-        <option value="Venda">Venda</option>
+        <option value="{{PURCHASE}}">Compra</option>
+        <option value="{{SALE}}">Venda</option>
       </select>
-      <small
-        class="error-msg"
-        *ngIf="transactionForm.get('transactionType').errors?.required"
-      >Required Field</small>
+      <vv-field-validation
+        [displayError]="isFieldValid('transactionType')"
+        errorMessage="Required field"
+      ></vv-field-validation>
     </div>
 
     <div class="input-group">
@@ -33,10 +33,10 @@
         formControlName="statement"
         required
       >
-      <small
-        class="error-msg"
-        *ngIf="transactionForm.get('statement').errors?.required"
-      >Required Field</small>
+      <vv-field-validation
+        [displayError]="isFieldValid('statement')"
+        errorMessage="Required field"
+      ></vv-field-validation>
     </div>
 
     <div class="input-group">
@@ -47,11 +47,12 @@
         placeholder="R$ 0,00"
         formControlName="price"
         required
+        currencyMask
       >
-      <small
-        class="error-msg"
-        *ngIf="transactionForm.get('price').errors?.required"
-      >Required Field</small>
+      <vv-field-validation
+        [displayError]="isFieldValid('price')"
+        errorMessage="Required field"
+      ></vv-field-validation>
     </div>
 
   </div>
