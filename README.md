@@ -1,10 +1,10 @@
-### Teste de front-end Via Varejo
+# Teste de front-end Via Varejo
 Este teste busca avaliar quesitos técnicos para as pessoas que se candidatem às vagas de desenvolvimento front-end da Via Varejo.
 
-### O desafio
+## O desafio
 Seu objetivo é criar uma SPA (Single Page Application) seguindo o layout que está em esta url https://goo.gl/yMrCaf.
 
-### O que sua aplicação deverá fazer
+## O que sua aplicação deverá fazer
 Incluir transações de compra ou venda de mercadoria
 Persistir as transações no local storage
 Criar um extrato das transações incluídas. As transações deverão ser mostradas na ordem em que foram incluídas
